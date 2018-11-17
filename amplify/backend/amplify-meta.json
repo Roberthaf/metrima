@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "metrima-20181117155523-authRole",
+            "UnauthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "metrima-20181117155523-deployment",
+            "UnauthRoleName": "metrima-20181117155523-unauthRole",
+            "StackName": "metrima-20181117155523",
+            "StackId": "arn:aws:cloudformation:eu-west-1:732655886544:stack/metrima-20181117155523/31bc60b0-ea81-11e8-a184-50a686325ed2"
+        }
+    }
+}
