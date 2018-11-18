@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "metrimaUserAutherization",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognitod12ce507",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "schemaGraphql": "s3://metrima-20181117155523-deployment/amplify-appsync-files/schema.graphql.1542551903445",
+    "ResolverBucket": "metrima-20181117155523-deployment",
+    "ResolverRootKey": "amplify-appsync-files",
+    "DeploymentTimestamp": "1542551903445"
+}

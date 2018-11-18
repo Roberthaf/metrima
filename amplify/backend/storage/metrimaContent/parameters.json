@@ -1,0 +1,9 @@
+{
+    "bucketName": "metrima-content-bucket",
+    "authPolicyName": "s3_amplify_853f330e",
+    "unauthPolicyName": "s3_amplify_853f330e",
+    "authRoleName": "metrima-20181117155523-authRole",
+    "unauthRoleName": "metrima-20181117155523-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": ""
+}

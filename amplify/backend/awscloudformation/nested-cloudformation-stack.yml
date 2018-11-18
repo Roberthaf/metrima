@@ -1,0 +1,262 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "Root stack for the Amplify AWS CloudFormation provider",
+	"Parameters": {
+		"DeploymentBucketName": {
+			"Description": "Name of the common deployment bucket provided by the parent stack",
+			"Type": "String",
+			"Default": "DeploymentBucket"
+		},
+		"AuthRoleName": {
+			"Type": "String",
+			"Default": "AuthRoleName"
+		},
+		"UnauthRoleName": {
+			"Type": "String",
+			"Default": "UnauthRoleName"
+		}
+	},
+	"Resources": {
+		"DeploymentBucket": {
+			"Type": "AWS::S3::Bucket",
+			"DeletionPolicy": "Retain",
+			"Properties": {
+				"BucketName": {
+					"Ref": "DeploymentBucketName"
+				}
+			}
+		},
+		"AuthRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"RoleName": {
+					"Ref": "AuthRoleName"
+				},
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Sid": "",
+							"Effect": "Allow",
+							"Principal": {
+								"Federated": "cognito-identity.amazonaws.com"
+							},
+							"Action": "sts:AssumeRoleWithWebIdentity",
+							"Condition": {
+								"ForAnyValue:StringLike": {
+									"cognito-identity.amazonaws.com:amr": "authenticated"
+								}
+							}
+						}
+					]
+				}
+			}
+		},
+		"UnauthRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"RoleName": {
+					"Ref": "UnauthRoleName"
+				},
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Sid": "",
+							"Effect": "Allow",
+							"Principal": {
+								"Federated": "cognito-identity.amazonaws.com"
+							},
+							"Action": "sts:AssumeRoleWithWebIdentity",
+							"Condition": {
+								"ForAnyValue:StringLike": {
+									"cognito-identity.amazonaws.com:amr": "unauthenticated"
+								}
+							}
+						}
+					]
+				}
+			}
+		},
+		"hostingS3AndCloudFront": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/hosting/template.json",
+				"Parameters": {}
+			}
+		},
+		"authcognitod12ce507": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/auth/cognitod12ce507-cloudformation-template.yml",
+				"Parameters": {
+					"identityPoolName": "cognitod12ce507_identitypool_d12ce507",
+					"allowUnauthenticatedIdentities": false,
+					"thirdPartyAuth": false,
+					"lambdaLogPolicy": "cognitod12ce507_lambda_log_policy",
+					"openIdLambdaRoleName": "cognitod12ce507_openid_lambda_role",
+					"openIdRolePolicy": "cognitod12ce507_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognitod12ce507_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognitod12ce507_openid_lambda_log_policy",
+					"userPoolName": "cognitod12ce507_userpool_d12ce507",
+					"autoVerifiedAttributes": "email",
+					"mfaConfiguration": "OFF",
+					"mfaTypes": "SMS Text Message",
+					"roleName": "cognitod12ce507_sns-role",
+					"roleExternalId": "cognitod12ce507_role_external_id",
+					"policyName": "cognitod12ce507-sns-policy",
+					"smsAuthenticationMessage": "Your authentication code is {####}",
+					"smsVerificationMessage": "Your verification code is {####}",
+					"emailVerificationSubject": "Your verification code",
+					"emailVerificationMessage": "Your verification code is {####}",
+					"defaultPasswordPolicy": false,
+					"passwordPolicyMinLength": 8,
+					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
+					"requiredAttributes": "email",
+					"userpoolClientName": "cognitod12ce507_app_client",
+					"userpoolClientGenerateSecret": true,
+					"userpoolClientRefreshTokenValidity": 30,
+					"userpoolClientReadAttributes": "email",
+					"mfaLambdaRole": "cognitod12ce507_totp_lambda_role",
+					"mfaLambdaLogPolicy": "cognitod12ce507_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "cognitod12ce507_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "cognitod12ce507_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "cognitod12ce507_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "cognitod12ce507_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "cognitod12ce507_userpoolclient_lambda_iam_policy",
+					"userpoolClientSetAttributes": false,
+					"useDefault": "default",
+					"unAuthRoleName": "metrima-20181117155523-unauthRole",
+					"authRoleName": "metrima-20181117155523-authRole",
+					"unAuthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-unauthRole",
+					"authRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-authRole",
+					"resourceName": "cognitod12ce507",
+					"authSelections": "identityPoolAndUserPool"
+				}
+			}
+		},
+		"analyticsmetrimaAnalytics": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"Parameters": {
+					"appName": "metrimaAnalytics",
+					"roleName": "pinpointLambdaRole33f2c557",
+					"cloudWatchPolicyName": "cloudWatchPolicy33f2c557",
+					"pinpointPolicyName": "pinpointPolicy33f2c557",
+					"authPolicyName": "pinpoint_amplify_33f2c557",
+					"unauthPolicyName": "pinpoint_amplify_33f2c557",
+					"authRoleName": "metrima-20181117155523-authRole",
+					"unauthRoleName": "metrima-20181117155523-unauthRole",
+					"IAMPrefix": "732655886544"
+				}
+			}
+		},
+		"storagemetrimaContent": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"Parameters": {
+					"bucketName": "metrima-content-bucket",
+					"authPolicyName": "s3_amplify_853f330e",
+					"unauthPolicyName": "s3_amplify_853f330e",
+					"authRoleName": "metrima-20181117155523-authRole",
+					"unauthRoleName": "metrima-20181117155523-unauthRole",
+					"authPermissions": "rw",
+					"unauthPermissions": ""
+				}
+			}
+		},
+		"apimetrimaUserAutherization": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"Parameters": {
+					"AppSyncApiName": "metrimaUserAutherization",
+					"AuthCognitoUserPoolId": {
+						"Fn::GetAtt": [
+							"authcognitod12ce507",
+							"Outputs.UserPoolId"
+						]
+					},
+					"schemaGraphql": "s3://metrima-20181117155523-deployment/amplify-appsync-files/schema.graphql.1542551903445",
+					"ResolverBucket": "metrima-20181117155523-deployment",
+					"ResolverRootKey": "amplify-appsync-files",
+					"DeploymentTimestamp": "1542551903445"
+				}
+			}
+		}
+	},
+	"Outputs": {
+		"Region": {
+			"Description": "CloudFormation provider root stack Region",
+			"Value": {
+				"Ref": "AWS::Region"
+			},
+			"Export": {
+				"Name": {
+					"Fn::Sub": "${AWS::StackName}-Region"
+				}
+			}
+		},
+		"StackName": {
+			"Description": "CloudFormation provider root stack ID",
+			"Value": {
+				"Ref": "AWS::StackName"
+			},
+			"Export": {
+				"Name": {
+					"Fn::Sub": "${AWS::StackName}-StackName"
+				}
+			}
+		},
+		"StackId": {
+			"Description": "CloudFormation provider root stack name",
+			"Value": {
+				"Ref": "AWS::StackId"
+			},
+			"Export": {
+				"Name": {
+					"Fn::Sub": "${AWS::StackName}-StackId"
+				}
+			}
+		},
+		"DeploymentBucketName": {
+			"Description": "CloudFormation provider root stack deployment bucket name",
+			"Value": {
+				"Ref": "DeploymentBucketName"
+			},
+			"Export": {
+				"Name": {
+					"Fn::Sub": "${AWS::StackName}-DeploymentBucketName"
+				}
+			}
+		},
+		"AuthRoleArn": {
+			"Value": {
+				"Fn::GetAtt": [
+					"AuthRole",
+					"Arn"
+				]
+			}
+		},
+		"UnauthRoleArn": {
+			"Value": {
+				"Fn::GetAtt": [
+					"UnauthRole",
+					"Arn"
+				]
+			}
+		},
+		"AuthRoleName": {
+			"Value": {
+				"Ref": "AuthRole"
+			}
+		},
+		"UnauthRoleName": {
+			"Value": {
+				"Ref": "UnauthRole"
+			}
+		}
+	}
+}

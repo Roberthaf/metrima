@@ -1,0 +1,11 @@
+{
+    "appName": "metrimaAnalytics",
+    "roleName": "pinpointLambdaRole33f2c557",
+    "cloudWatchPolicyName": "cloudWatchPolicy33f2c557",
+    "pinpointPolicyName": "pinpointPolicy33f2c557",
+    "authPolicyName": "pinpoint_amplify_33f2c557",
+    "unauthPolicyName": "pinpoint_amplify_33f2c557",
+    "authRoleName": "metrima-20181117155523-authRole",
+    "unauthRoleName": "metrima-20181117155523-unauthRole",
+    "IAMPrefix": "732655886544"
+}

@@ -1,0 +1,16 @@
+projects:
+  metrimaUserAutherization:
+    schemaPath: src\graphql\schema.json
+    includes:
+      - src\graphql\**\*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src\graphql
+        graphQLApiId: sv4ca46cjvgejgff3r25kcmcva
+      endpoints:
+        prod: >-
+          https://k5zbahevdfekzlcsng4vm74r3q.appsync-api.eu-west-1.amazonaws.com/graphql

@@ -1,0 +1,36 @@
+#type Task
+#  @model 
+#  @auth(rules: [
+#      {allow: groups, groups: ["Admin"], queries: [get, list], mutations: [create, update, delete]},
+#      {allow: groups, groups: ["Users"], queries: [get, list], mutations: null}
+#    ])
+#{
+#  id: ID!
+#  title: String!
+#  description: String
+#  status: String
+#}
+
+#type 
+#  @model
+#  @auth(rules: [{allow: owner}])
+#{
+#  id: ID!
+#  content: String!
+#}
+
+type User @model {
+  id: ID!
+  name: String!
+  role: String!
+  email: String!
+  company: String
+  cameras: [Camera] @connection(name: "UsersCameras")
+}
+
+type Camera @model {
+  # Camera ID should be macddress
+  id: ID!
+  location: String!
+  owner: User! @connection(name: "UsersCameras")
+}
