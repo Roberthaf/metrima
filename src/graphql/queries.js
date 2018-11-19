@@ -6,6 +6,7 @@ export const getUser = `query GetUser($id: ID!) {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -28,6 +29,7 @@ export const listUsers = `query ListUsers(
       id
       name
       role
+      admin
       email
       company
       cameras {
@@ -50,6 +52,7 @@ export const getCamera = `query GetCamera($id: ID!) {
       id
       name
       role
+      admin
       email
       company
     }
@@ -69,6 +72,7 @@ export const listCameras = `query ListCameras(
         id
         name
         role
+        admin
         email
         company
       }

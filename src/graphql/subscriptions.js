@@ -6,6 +6,7 @@ export const onCreateUser = `subscription OnCreateUser {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -23,6 +24,7 @@ export const onUpdateUser = `subscription OnUpdateUser {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -40,6 +42,7 @@ export const onDeleteUser = `subscription OnDeleteUser {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -60,6 +63,7 @@ export const onCreateCamera = `subscription OnCreateCamera {
       id
       name
       role
+      admin
       email
       company
     }
@@ -74,6 +78,7 @@ export const onUpdateCamera = `subscription OnUpdateCamera {
       id
       name
       role
+      admin
       email
       company
     }
@@ -88,6 +93,7 @@ export const onDeleteCamera = `subscription OnDeleteCamera {
       id
       name
       role
+      admin
       email
       company
     }

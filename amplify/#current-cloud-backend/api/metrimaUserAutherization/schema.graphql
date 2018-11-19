@@ -23,6 +23,7 @@ type User @model {
   id: ID!
   name: String!
   role: String!
+  admin: Boolean!
   email: String!
   company: String
   cameras: [Camera] @connection(name: "UsersCameras")

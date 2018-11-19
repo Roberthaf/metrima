@@ -1,107 +1,107 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "metrima-20181117155523-authRole",
-            "UnauthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-authRole",
-            "Region": "eu-west-1",
-            "DeploymentBucketName": "metrima-20181117155523-deployment",
-            "UnauthRoleName": "metrima-20181117155523-unauthRole",
-            "StackName": "metrima-20181117155523",
-            "StackId": "arn:aws:cloudformation:eu-west-1:732655886544:stack/metrima-20181117155523/31bc60b0-ea81-11e8-a184-50a686325ed2"
-        }
-    },
-    "hosting": {
-        "S3AndCloudFront": {
-            "service": "S3AndCloudFront",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/hosting/template.json",
-                "logicalId": "hostingS3AndCloudFront"
-            },
-            "lastPushTimeStamp": "2018-11-18T14:44:40.564Z",
-            "output": {
-                "S3BucketSecureURL": "https://metrima-20181117180557--hostingbucket.s3.amazonaws.com",
-                "WebsiteURL": "http://metrima-20181117180557--hostingbucket.s3-website-eu-west-1.amazonaws.com",
-                "Region": "eu-west-1",
-                "HostingBucketName": "metrima-20181117180557--hostingbucket"
-            },
-            "lastPushDirHash": "Nsy9TmlztHxQn3NZrYPObANgYd8="
-        }
-    },
-    "auth": {
-        "cognitod12ce507": {
-            "service": "Cognito",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/auth/cognitod12ce507-cloudformation-template.yml",
-                "logicalId": "authcognitod12ce507"
-            },
-            "lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
-            "output": {
-                "AppClientSecret": "1pvh42vraferbmhfeoc4rq9g1hmr980jb5ckvnpcr286r8to63t2",
-                "UserPoolId": "eu-west-1_ZmPDLosha",
-                "AppClientIDWeb": "48npsn5ismsg1kcp51sjpot526",
-                "AppClientID": "707bt8g6pi86s7utlk4j141fir",
-                "IdentityPoolId": "eu-west-1:f431528b-b938-4695-81b4-c5212254c571",
-                "IdentityPoolName": "cognitod12ce507_identitypool_d12ce507",
-                "UserPoolName": "cognitod12ce507_userpool_d12ce507"
-            },
-            "lastPushDirHash": "cZHmIh5Ijn5Lw5SQVG7pkaIzgdE="
-        }
-    },
-    "analytics": {
-        "metrimaAnalytics": {
-            "service": "Pinpoint",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
-                "logicalId": "analyticsmetrimaAnalytics"
-            },
-            "lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
-            "output": {
-                "appName": "metrimaAnalytics",
-                "Region": "us-east-1",
-                "Id": "3f4f8a2af0b84329aa4e9e4dce817051"
-            },
-            "lastPushDirHash": "cJi4roOeVMF7QCv/UggaRtDqyNk="
-        }
-    },
-    "storage": {
-        "metrimaContent": {
-            "service": "S3",
-            "providerPlugin": "awscloudformation",
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-                "logicalId": "storagemetrimaContent"
-            },
-            "lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
-            "output": {
-                "BucketName": "metrima-content-bucket",
-                "Region": "eu-west-1"
-            },
-            "lastPushDirHash": "8CdlpesKX+ioBwpbSwztbCMax0E="
-        }
-    },
-    "api": {
-        "metrimaUserAutherization": {
-            "service": "AppSync",
-            "providerPlugin": "awscloudformation",
-            "output": {
-                "securityType": "AMAZON_COGNITO_USER_POOLS",
-                "GraphQLAPIIdOutput": "sv4ca46cjvgejgff3r25kcmcva",
-                "GraphQLAPIEndpointOutput": "https://k5zbahevdfekzlcsng4vm74r3q.appsync-api.eu-west-1.amazonaws.com/graphql",
-                "GraphQLAPIKeyOutput": "da2-xouytaypundvbfbh2xnaf6q3vq",
-                "AuthCognitoUserPoolIdOutput": "eu-west-1_ZmPDLosha",
-                "AuthCognitoUserPoolNativeClientId": "See UserPool: eu-west-1_ZmPDLosha",
-                "AuthCognitoUserPoolJSClientId": "See UserPool: eu-west-1_ZmPDLosha"
-            },
-            "providerMetadata": {
-                "s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-                "logicalId": "apimetrimaUserAutherization"
-            },
-            "lastPushTimeStamp": "2018-11-19T16:44:33.032Z",
-            "lastPushDirHash": "4nCIBnCbBAmb01y2lks6cgRkmEY="
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "metrima-20181117155523-authRole",
+			"UnauthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::732655886544:role/metrima-20181117155523-authRole",
+			"Region": "eu-west-1",
+			"DeploymentBucketName": "metrima-20181117155523-deployment",
+			"UnauthRoleName": "metrima-20181117155523-unauthRole",
+			"StackName": "metrima-20181117155523",
+			"StackId": "arn:aws:cloudformation:eu-west-1:732655886544:stack/metrima-20181117155523/31bc60b0-ea81-11e8-a184-50a686325ed2"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-11-19T16:45:35.664Z",
+			"output": {
+				"S3BucketSecureURL": "https://metrima-20181117180557--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://metrima-20181117180557--hostingbucket.s3-website-eu-west-1.amazonaws.com",
+				"Region": "eu-west-1",
+				"HostingBucketName": "metrima-20181117180557--hostingbucket"
+			},
+			"lastPushDirHash": "Nsy9TmlztHxQn3NZrYPObANgYd8="
+		}
+	},
+	"auth": {
+		"cognitod12ce507": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/auth/cognitod12ce507-cloudformation-template.yml",
+				"logicalId": "authcognitod12ce507"
+			},
+			"lastPushTimeStamp": "2018-11-19T16:45:35.666Z",
+			"output": {
+				"AppClientSecret": "1pvh42vraferbmhfeoc4rq9g1hmr980jb5ckvnpcr286r8to63t2",
+				"UserPoolId": "eu-west-1_ZmPDLosha",
+				"AppClientIDWeb": "48npsn5ismsg1kcp51sjpot526",
+				"AppClientID": "707bt8g6pi86s7utlk4j141fir",
+				"IdentityPoolId": "eu-west-1:f431528b-b938-4695-81b4-c5212254c571",
+				"IdentityPoolName": "cognitod12ce507_identitypool_d12ce507",
+				"UserPoolName": "cognitod12ce507_userpool_d12ce507"
+			},
+			"lastPushDirHash": "cZHmIh5Ijn5Lw5SQVG7pkaIzgdE="
+		}
+	},
+	"analytics": {
+		"metrimaAnalytics": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"logicalId": "analyticsmetrimaAnalytics"
+			},
+			"lastPushTimeStamp": "2018-11-19T16:45:35.667Z",
+			"output": {
+				"appName": "metrimaAnalytics",
+				"Region": "us-east-1",
+				"Id": "3f4f8a2af0b84329aa4e9e4dce817051"
+			},
+			"lastPushDirHash": "cJi4roOeVMF7QCv/UggaRtDqyNk="
+		}
+	},
+	"storage": {
+		"metrimaContent": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storagemetrimaContent"
+			},
+			"lastPushTimeStamp": "2018-11-19T16:45:35.669Z",
+			"output": {
+				"BucketName": "metrima-content-bucket",
+				"Region": "eu-west-1"
+			},
+			"lastPushDirHash": "8CdlpesKX+ioBwpbSwztbCMax0E="
+		}
+	},
+	"api": {
+		"metrimaUserAutherization": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS",
+				"GraphQLAPIIdOutput": "sv4ca46cjvgejgff3r25kcmcva",
+				"GraphQLAPIEndpointOutput": "https://k5zbahevdfekzlcsng4vm74r3q.appsync-api.eu-west-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-xouytaypundvbfbh2xnaf6q3vq",
+				"AuthCognitoUserPoolIdOutput": "eu-west-1_ZmPDLosha",
+				"AuthCognitoUserPoolNativeClientId": "See UserPool: eu-west-1_ZmPDLosha",
+				"AuthCognitoUserPoolJSClientId": "See UserPool: eu-west-1_ZmPDLosha"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apimetrimaUserAutherization"
+			},
+			"lastPushTimeStamp": "2018-11-19T16:45:36.836Z",
+			"lastPushDirHash": "QyNpr41N8YxFfSrBWZahirw0v/g="
+		}
+	}
 }

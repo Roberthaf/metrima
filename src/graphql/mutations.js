@@ -6,6 +6,7 @@ export const createUser = `mutation CreateUser($input: CreateUserInput!) {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -23,6 +24,7 @@ export const updateUser = `mutation UpdateUser($input: UpdateUserInput!) {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -40,6 +42,7 @@ export const deleteUser = `mutation DeleteUser($input: DeleteUserInput!) {
     id
     name
     role
+    admin
     email
     company
     cameras {
@@ -60,6 +63,7 @@ export const createCamera = `mutation CreateCamera($input: CreateCameraInput!) {
       id
       name
       role
+      admin
       email
       company
     }
@@ -74,6 +78,7 @@ export const updateCamera = `mutation UpdateCamera($input: UpdateCameraInput!) {
       id
       name
       role
+      admin
       email
       company
     }
@@ -88,6 +93,7 @@ export const deleteCamera = `mutation DeleteCamera($input: DeleteCameraInput!) {
       id
       name
       role
+      admin
       email
       company
     }

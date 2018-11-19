@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-11-18T14:44:40.564Z",
+			"lastPushTimeStamp": "2018-11-19T16:45:35.664Z",
 			"output": {
 				"S3BucketSecureURL": "https://metrima-20181117180557--hostingbucket.s3.amazonaws.com",
 				"WebsiteURL": "http://metrima-20181117180557--hostingbucket.s3-website-eu-west-1.amazonaws.com",
@@ -37,7 +37,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/auth/cognitod12ce507-cloudformation-template.yml",
 				"logicalId": "authcognitod12ce507"
 			},
-			"lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
+			"lastPushTimeStamp": "2018-11-19T16:45:35.666Z",
 			"output": {
 				"AppClientSecret": "1pvh42vraferbmhfeoc4rq9g1hmr980jb5ckvnpcr286r8to63t2",
 				"UserPoolId": "eu-west-1_ZmPDLosha",
@@ -58,7 +58,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"logicalId": "analyticsmetrimaAnalytics"
 			},
-			"lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
+			"lastPushTimeStamp": "2018-11-19T16:45:35.667Z",
 			"output": {
 				"appName": "metrimaAnalytics",
 				"Region": "us-east-1",
@@ -75,7 +75,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
 				"logicalId": "storagemetrimaContent"
 			},
-			"lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
+			"lastPushTimeStamp": "2018-11-19T16:45:35.669Z",
 			"output": {
 				"BucketName": "metrima-content-bucket",
 				"Region": "eu-west-1"
@@ -100,8 +100,8 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/metrima-20181117155523-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apimetrimaUserAutherization"
 			},
-			"lastPushTimeStamp": "2018-11-18T14:44:42.212Z",
-			"lastPushDirHash": "4nCIBnCbBAmb01y2lks6cgRkmEY="
+			"lastPushTimeStamp": "2018-11-19T16:45:36.836Z",
+			"lastPushDirHash": "QyNpr41N8YxFfSrBWZahirw0v/g="
 		}
 	}
 }
