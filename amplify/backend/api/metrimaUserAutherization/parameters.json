@@ -6,8 +6,8 @@
             "Outputs.UserPoolId"
         ]
     },
-    "schemaGraphql": "s3://metrima-20181117155523-deployment/amplify-appsync-files/schema.graphql.1542551903445",
+    "schemaGraphql": "s3://metrima-20181117155523-deployment/amplify-appsync-files/schema.graphql.1542645513910",
     "ResolverBucket": "metrima-20181117155523-deployment",
     "ResolverRootKey": "amplify-appsync-files",
-    "DeploymentTimestamp": "1542551903445"
+    "DeploymentTimestamp": "1542645513910"
 }
