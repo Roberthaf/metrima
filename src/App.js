@@ -30,6 +30,9 @@ class App extends Component {
       }
       const getUserInfo =  API.graphql(graphqlOperation(getUser,items));  
       console.log(getUserInfo)
+      this.setState({
+        userData: getUserInfo
+      })
     })
     .catch(err => 
       console.log(err));
